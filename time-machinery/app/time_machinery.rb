@@ -10,12 +10,16 @@ end
 get '/create' do
 
   Activity_Controller.createActivity params
-  "created at #{Time.now} <br />activity_name: #{params['activity_name']}"
+  # "created at #{Time.now} <br />activity_name: #{params['activity_name']}"
+
+  redirect '/list'
 end
 
 
 get '/list' do
 
-  Activity_Controller.showList params
+  @activityListHTML = Activity_Controller.showList params
+
+  erb :list
 end
 
