@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'sinatra'
-require 'mongo'
 require 'controllers/Activity_Controller.rb'
 
 get '/' do
