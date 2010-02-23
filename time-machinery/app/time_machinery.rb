@@ -22,3 +22,9 @@ get '/list' do
   erb :list
 end
 
+
+get '/newlist' do
+  @listJson = Activity_Controller.newlist params
+  erb :newlist
+end
+

@@ -21,6 +21,20 @@ class Activity_Controller
     return "Read back verification<br />#{document}"
   end
 
+  def self.newlist params
+    
+    json = '['
+    leadingComma = ''
+
+    dbSetup { |collection|
+      collection.find("name" => /.*/).each { |doc|
+        json += sprintf("%s{\"name\": \"%s\"}\n", leadingComma, doc["name"]);
+        leadingComma = ','
+      }
+    }
+    json += ']'
+    return json.to_a
+  end
 
   private 
 
