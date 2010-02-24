@@ -28,3 +28,7 @@ get '/newlist' do
   erb :newlist
 end
 
+get '/names' do
+    return Activity_Controller.names params
+end
+
